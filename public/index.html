@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typerigo - Test Your Typing Speed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-keyboard"></i> Typerigo</h1>
+            <div class="user-section">
+                <input type="text" id="username-input" placeholder="Enter your username" maxlength="15">
+                <button id="set-username-btn">Set Username</button>
+                <span id="current-user"></span>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="game">Game</button>
+            <button class="tab-btn" data-tab="stats">Statistics</button>
+            <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+        </div>
+
+        <div class="tab-content active" id="game">
+            <div class="game-container">
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-label">Time:</span>
+                        <span id="timer">0s</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">WPM:</span>
+                        <span id="wpm">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy:</span>
+                        <span id="accuracy">0%</span>
+                    </div>
+                </div>
+
+                <div id="text-display" class="text-display"></div>
+                <input type="text" id="text-input" class="text-input" placeholder="Start typing..." disabled>
+
+                <div id="results" class="results hidden">
+                    <h2>Results</h2>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="stat-label">WPM:</span>
+                            <span id="result-wpm">0</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="stat-label">Accuracy:</span>
+                            <span id="result-accuracy">0%</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="stat-label">Time:</span>
+                            <span id="result-time">0s</span>
+                        </div>
+                    </div>
+                    <button id="try-again-btn">Try Again</button>
+                </div>
+
+                <button id="new-game-btn">New Game</button>
+            </div>
+        </div>
+
+        <div class="tab-content" id="stats">
+            <div class="stats-container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Average WPM</h3>
+                        <div class="stat-value" id="avg-wpm">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Best WPM</h3>
+                        <div class="stat-value" id="best-wpm">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Games</h3>
+                        <div class="stat-value" id="total-games">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average Accuracy</h3>
+                        <div class="stat-value" id="avg-accuracy">0%</div>
+                    </div>
+                </div>
+
+                <div class="recent-games">
+                    <h3>Recent Games</h3>
+                    <div id="recent-games" class="recent-games-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="leaderboard">
+            <div class="leaderboard-container">
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" data-filter="best">Best WPM</button>
+                    <button class="filter-btn" data-filter="average">Average WPM</button>
+                    <button class="filter-btn" data-filter="games">Most Games</button>
+                </div>
+
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th id="leaderboard-value-header">Best WPM</th>
+                            <th>Games</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <tr>
+                            <td colspan="4" class="no-data">No data available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
